@@ -20,7 +20,7 @@ jobs:
         run: make
 
       - name: Make script executable
-        run: chmod +x run.sh
+        run: chmod +x test.sh
 
       - name: Run tests
-        run: ./run.sh
+        run: ./test.sh

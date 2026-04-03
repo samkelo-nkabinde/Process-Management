@@ -104,13 +104,13 @@ make DEBUG=-DDEBUG_MNGR
 
 ```bash
 # Run with 1 thread, generated processes, Round Robin, quantum = 2
-./manager 1 generate 1 2
+./schedule_processes 1 generate 1 2
 
 # Run with 4 threads, a process file, Priority scheduling
-./manager 4 processes.list 0 1
+./schedule_processes 4 processes.list 0 1
 
 # FCFS with a single core
-./manager 1 processes.list 2 1
+./schedule_processes 1 processes.list 2 1
 ```
 
 ## Output Files
