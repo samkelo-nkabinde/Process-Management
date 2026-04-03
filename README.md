@@ -17,6 +17,17 @@ resource allocation and deadloack dectection. The system supports both single-co
 - **Deadlock Detection**: Identifies deadlocked processes and blocked processes
 - **Comprehensive Logging**: Detailed output for debugging and analysis
 
+## Scheduling Algorithms
+
+### FCFS (First Come, First Served)
+Processes run in arrival order. Each process executes until it blocks on a resource request or exhausts its instruction list.
+
+### Round Robin
+Processes run for a fixed `time_quantum` number of instructions before being preempted and returned to the back of the ready queue.
+
+### Priority (with preemption)
+The process with the lowest priority number runs at all times. After every instruction, the scheduler checks whether a higher-priority process has entered the ready queue (via a new arrival or a wakeup). If so, the current process is preempted and returned to the ready queue.
+
 ## Project Structure
 
 ```.
@@ -72,6 +83,20 @@ make DEBUG=-DDEBUG_MNGR
 | `data` | Path to a `.list` process file, or `generate` for random generation |
 | `scheduler` | `0` = Priority, `1` = Round Robin, `2` = FCFS |
 | `time_quantum` | Number of instructions per timeslice (used by Round Robin only) |
+
+
+**Examples:**
+
+```bash
+# Run with 1 thread, generated processes, Round Robin, quantum = 2
+./manager 1 generate 1 2
+
+# Run with 4 threads, a process file, Priority scheduling
+./manager 4 processes.list 0 1
+
+# FCFS with a single core
+./manager 1 processes.list 2 1
+```
 
 ## Output Files
 
