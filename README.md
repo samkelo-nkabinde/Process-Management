@@ -37,18 +37,20 @@ The process with the lowest priority number runs at all times. After every instr
    ├── Makefile
    ├── README.md
    ├── run.sh
-   └── src
-       ├── logger.c         // Logs system events to files
-       ├── logger.h         // Definition of logger.c functions
-       ├── manager.c        // Core scheduling logic
-       ├── manager.h        // Defination of manager.c fucntions and data struture
-       ├── proc_gen.c       // Generates random test processes
-       ├── proc_gen.h       // Definition of proc_gen.c functions
-       ├── proc_loader.c    // Manages OS process and resource loading
-       ├── proc_parser.c    // Parses process configuration files
-       ├── proc_parser.h    // Defination of proc_parser.c
-       ├── proc_structs.h   // Defines OS data structures
-       └── proc_syntax.h    // Defines parser's language keywords
+   └── core
+       ├── inc
+       │    ├── logger.h         // Definition of logger.c functions
+       │    ├── manager.h        // Defination of manager.c fucntions and data struture
+       │    ├── proc_gen.h       // Definition of proc_gen.c functions
+       │    ├── proc_parser.h    // Defination of proc_parser.c
+       │    ├── proc_structs.h   // Defines OS data structures
+       │    └── proc_syntax.h    // Defines parser's language keywords
+       └── src
+            ├──logger.c         // Logs system events to files
+            ├── manager.c        // Core scheduling logic
+            ├── proc_gen.c       // Generates random test processes
+            ├── proc_loader.c    // Manages OS process and resource loading
+            └── proc_parser.c    // Parses process configuration files
 ```
 
 ## Prerequisites
@@ -61,10 +63,10 @@ The process with the lowest priority number runs at all times. After every instr
 
 ```bash
 # Standard build
-gcc -fopenmp -o schedule_processes manager.c proc_loader.c proc_parser.c proc_gen.c logger.c -lm
+gcc -fopenmp -Icore/inc -o schedule_processes core/src/*.c -lm
 
 # With debug output
-gcc -fopenmp -DDEBUG -o schedule_processes manager.c proc_loader.c proc_parser.c proc_gen.c logger.c -lm
+gcc -fopenmp -DDEBUG -Icore/inc -o schedule_processes core/src/*.c -lm
 
 # With Makefile
 make
