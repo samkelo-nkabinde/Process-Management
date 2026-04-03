@@ -37,20 +37,33 @@ The process with the lowest priority number runs at all times. After every instr
    ├── Makefile
    ├── README.md
    ├── run.sh
-   └── core
-       ├── inc
-       │    ├── logger.h         // Definition of logger.c functions
-       │    ├── manager.h        // Defination of manager.c fucntions and data struture
-       │    ├── proc_gen.h       // Definition of proc_gen.c functions
-       │    ├── proc_parser.h    // Defination of proc_parser.c
-       │    ├── proc_structs.h   // Defines OS data structures
-       │    └── proc_syntax.h    // Defines parser's language keywords
-       └── src
-            ├──logger.c         // Logs system events to files
-            ├── manager.c        // Core scheduling logic
-            ├── proc_gen.c       // Generates random test processes
-            ├── proc_loader.c    // Manages OS process and resource loading
-            └── proc_parser.c    // Parses process configuration files
+   ├── core
+   │   ├── inc
+   │   │    ├── logger.h         // Definition of logger.c functions
+   │   │    ├── manager.h        // Defination of manager.c fucntions and data struture
+   │   │    ├── proc_gen.h       // Definition of proc_gen.c functions
+   │   │    ├── proc_parser.h    // Defination of proc_parser.c
+   │   │    ├── proc_structs.h   // Defines OS data structures
+   │   │    └── proc_syntax.h    // Defines parser's language keywords
+   │   └── src
+   │        ├── logger.c         // Logs system events to files
+   │        ├── manager.c        // Core scheduling logic
+   │        ├── proc_gen.c       // Generates random test processes
+   │        ├── proc_loader.c    // Manages OS process and resource loading
+   │        └── proc_parser.c    // Parses process configuration files
+   └── tests
+        ├── input
+        │    ├── 00_process1.list
+        │    ├── 01_empty.list
+        │    │         ⋮
+        │    ├── 20_unknown_instr.list
+        │    └── 21_unknown_instr_multi.list
+        └── expected
+              ├── 0_00_process1.log.exp
+              ├── 0_00_process1.out.exp
+              │         ⋮
+              ├── 2_21_unknown_instr_multi.log.exp
+              └── 2_21_unknown_instr_multi.out.exp
 ```
 
 ## Prerequisites

@@ -1,0 +1,10 @@
+
+-----------------------------------Ready: P1 P2 
+-----------------------------------Waiting: 
+-----------------------------------Terminated: 
+P1 req R2: waiting
+P2 req R3: waiting
+No deadlock detected, but blocked process(es) found:
+-----------------------------------Ready: 
+-----------------------------------Waiting: P1 P2 
+-----------------------------------Terminated: 

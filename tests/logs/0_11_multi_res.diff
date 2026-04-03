@@ -1,0 +1,11 @@
+--- tests/expected/0_11_multi_res.log.exp	2026-03-27 17:36:15.000000000 +0200
++++ tests/logs/0_11_multi_res.log	2026-04-03 14:54:29.613707417 +0200
+@@ -1,6 +1,8 @@
+ P1 req R1: acquired
++P2: ready
+ P1 rel R1: released
+ P2 req R1: acquired
++P3: ready
+ P2 rel R1: released
+ P3 req R1: acquired
+ P3 rel R1: released

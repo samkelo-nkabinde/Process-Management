@@ -1,0 +1,32 @@
+--- tests/expected/0_12_deadlock.log.exp	2026-03-27 17:36:15.000000000 +0200
++++ tests/logs/0_12_deadlock.log	2026-04-03 14:54:29.660707418 +0200
+@@ -1,11 +1,18 @@
+ P3 req R1: acquired
+-P4: ready
+-P3: ready
+-P4 req R2: acquired
+-P5: ready
+-P4 req R1: waiting
+-P6: ready
+-P3 req R2: waiting
+-P1 req R1: waiting
+-P2 req R1: waiting
+-Deadlock detected:
+\ No newline at end of file
++P1: ready
++P3 req R2: acquired
++P1: ready
++P3 rel R1: released
++P1: ready
++P3 rel R2: released
++P1 req R1: acquired
++P2: ready
++P1 rel R1: released
++P2: ready
++P1 req R2: acquired
++P2: ready
++P1 rel R2: released
++P2 req R1: acquired
++P2 req R2: acquired
++P2 rel R1: released
++P2 rel R2: released
